@@ -161,6 +161,6 @@ app.delete('/carrinho2', async (req, res) => { ///FUNCAO PARA DELETAR COLECTION
 
 
 
-app.listen(3331);
+app.listen(process.env.PORT || 3331);
 
 
