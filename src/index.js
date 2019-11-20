@@ -6,6 +6,7 @@ const User = require('./User')
 const Produto = require('./Produto')
 const Cidade = require('./Cidade')
 const Carrinho = require('./Carrinho')
+const Comment = require('./Comment')
 
 
 const app = express();
@@ -20,7 +21,16 @@ app.use(cors());// usa o cors para o front poder chamar o back
 
 
 
-
+app.post('/comment', async (req, res) => { // criar usuario
+    const comment = await Comment.create(req.body);
+    console.log(" comments " + comment.name);
+    return res.json(comment);
+});
+app.get('/comment', async (req, res) => {
+    const comment = await Comment.find();
+    return res.json(comment);
+});
+/////////////////////////////////////////////////////////
 app.get('/users', async (req, res) => {
     const users = await User.find();
     return res.json(users);
