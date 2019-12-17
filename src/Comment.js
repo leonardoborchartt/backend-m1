@@ -5,7 +5,7 @@ const localdate = dNow.getDate() + '/' + (dNow.getMonth()+1) + '/' + dNow.getFul
 const CommentSchema = new mongoose.Schema({
     name:String,
     says:String,
-    localdate:localdate,
+    localdate:String,
     
 });
 module.exports = mongoose.model('Comment', CommentSchema);
