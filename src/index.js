@@ -21,7 +21,7 @@ app.use(cors());// usa o cors para o front poder chamar o back
 
 
 
-app.post('/comment', async (req, res) => { // criar usuario
+app.post('/comment', async (req, res) => { 
     const comment = await Comment.create(req.body);
     console.log(" comments " + comment.name);
     return res.json(comment);
