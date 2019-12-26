@@ -22,11 +22,13 @@ app.use(cors());// usa o cors para o front poder chamar o back
 
 
 app.post('/comment', async (req, res) => { 
-    //const dNow = new Date();
-    //const localdate1 = dNow.getDate() + '/' + (dNow.getMonth()+1) + '/' + dNow.getFullYear() + ' ' + dNow.getHours() + ':' + dNow.getMinutes();
+    const dNow = new Date();
+    const localdate01 = dNow.getDate() + '/' + (dNow.getMonth()+1) + '/' + dNow.getFullYear() + ' ' + dNow.getHours() + ':' + dNow.getMinutes();
 
     const comment = await Comment.create(req.body);
-    console.log(" comments " + comment.name);
+    comment.localdate1 = localdate01;
+    console.log(" comments " + comment.name + comment.localdate1);
+
     return res.json(comment);
 });
 app.get('/comment', async (req, res) => {
